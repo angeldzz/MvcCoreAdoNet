@@ -20,7 +20,8 @@ namespace MvcCoreAdoNet.Repositories
             string sql = "select * from HOSPITAL";
             this.com.CommandType = System.Data.CommandType.Text;
             this.com.CommandText = sql;
-            await this.com.ExecuteReaderAsync();
+            await this.cn.OpenAsync();
+            this.reader = await this.com.ExecuteReaderAsync();
             List<Hospital> hospitales = new List<Hospital>();
             while (await this.reader.ReadAsync())
             {
@@ -29,7 +30,7 @@ namespace MvcCoreAdoNet.Repositories
                 h.Nombre = this.reader["NOMBRE"].ToString();
                 h.Direccion = this.reader["DIRECCION"].ToString();
                 h.Telefono = this.reader["TELEFONO"].ToString();
-                h.Camas = int.Parse(this.reader["NUM_CAMAS"].ToString());
+                h.Camas = int.Parse(this.reader["NUM_CAMA"].ToString());
                 hospitales.Add(h);
             }
             await this.reader.CloseAsync();
