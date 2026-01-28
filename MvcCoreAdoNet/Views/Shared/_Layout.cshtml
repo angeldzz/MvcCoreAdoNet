@@ -32,7 +32,6 @@
     </nav>
     <main>
         @RenderBody()
-        <button class="btn btn-primary" id="prueba">Prueba JQUERY</button>
     </main>
     <footer>
 
@@ -40,11 +39,5 @@
     </body>
     <script src="~/js/jquery-4.0.0.min.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#prueba").click(function(){
-                alert("Hola");
-            })
-        })
-    </script>
+    @RenderSection("Scripts", required: false)
     </html>
