@@ -1,0 +1,28 @@
+﻿@model Hospital
+<a asp-controller="Hospitales" asp-action="Index">Volver al menu</a>
+
+<h1>
+    Editar hospital
+</h1>
+
+@if (Model != null)
+{
+    <form method="post">
+        <label>Id</label>
+        <input type="number" name="idhospital" class="form-control" value="@Model.IdHospital" readonly/><br />
+        <label>Nombre</label>
+        <input type="text" name="nombre" class="form-control" value="@Model.Nombre" /><br />
+        <label>Direccion</label>
+        <input type="text" name="direccion" class="form-control" value="@Model.Direccion" /><br />
+        <label>Telefono</label>
+        <input type="text" name="telefono" class="form-control" value="@Model.Telefono" /><br />
+        <label>Camas</label>
+        <input type="number" name="camas" class="form-control" value="@Model.Camas" /><br />
+        <button class="btn btn-info text-white">Editar</button>
+    </form>
+}
+
+<h2 style="color: fuchsia">
+    @ViewData["MENSAJE"]
+</h2>
+

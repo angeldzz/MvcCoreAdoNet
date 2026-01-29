@@ -16,14 +16,18 @@ namespace MvcCoreAdoNet.Controllers
         public async Task<IActionResult> Index()
         {
             List<Doctor> doctores = await this.repo.GetAllDoctoresAsync();
+            List<string> especialidades = await this.repo.GetEspecialidadesAsync();
+            ViewData["ESPECIALIDADES"] = especialidades;
             return View(doctores);
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(string especialidad)
         {
-            List<Doctor> doctoresFiltrados = await this.repo.GetDoctoresEspecialidadAsync(especialidad);
-            return View(doctoresFiltrados);
+            List<Doctor> doctores = await this.repo.GetDoctoresEspecialidadAsync(especialidad);
+            List<string> especialidades = await this.repo.GetEspecialidadesAsync();
+            ViewData["ESPECIALIDADES"] = especialidades;
+            return View(doctores);
         }
     }
 }

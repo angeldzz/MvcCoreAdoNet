@@ -3,8 +3,16 @@
 <h1>DOCTORES</h1>
 
 <form method="post">
-    <label>Introduzca especialidad: </label>
-    <input type="text" class="form-control" name="especialidad" />
+    <label>Introduzca especialidad:</label>
+    <select class="form-control" name="especialidad">
+        @{
+            List<string> especialidades = (List<string>)ViewData["ESPECIALIDADES"];
+        }
+        @foreach (string especialidad in especialidades)
+            {
+            <option>@especialidad</option>
+            }
+        </select>
     <button class="btn btn-primary">Cargar doctores</button>
 </form>
 

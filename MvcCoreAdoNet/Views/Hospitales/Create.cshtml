@@ -1,0 +1,23 @@
+﻿﻿<a asp-controller="Hospitales" asp-action="Index">Volver al menu</a>
+
+<h1>
+    Crear Hospitales
+</h1>
+
+<form method="post">
+    <label>Id</label>
+    <input type="number" name="idhospital" class="form-control" /><br />
+    <label>Nombre</label>
+    <input type="text" name="nombre" class="form-control" /><br />
+    <label>Direccion</label>
+    <input type="text" name="direccion" class="form-control" /><br />
+    <label>Telefono</label>
+    <input type="text" name="telefono" class="form-control" /><br />
+    <label>Camas</label>
+    <input type="number" name="camas" class="form-control" /><br />
+    <button class="btn btn-primary">Insertar</button>
+</form>
+
+<h2 style="color:blueviolet">
+    @ViewData["MENSAJE"]
+</h2>

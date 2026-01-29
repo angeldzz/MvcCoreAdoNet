@@ -10,19 +10,20 @@
                 <th>Details</th>
             </tr>
         </thead>
-        <tbody>
-            @foreach (Hospital hospital in Model)
-            {
+    <tbody>
+        @foreach (Hospital hospital in Model)
+        {
             <tr>
                 <td>@hospital.Nombre</td>
                 <td>@hospital.Direccion</td>
                 <td>@hospital.Telefono</td>
                 <td>
-                    @Html.ActionLink("Details", "Details", "Hospitales",
-                    new { id = hospital.IdHospital }, 
-                    new { @class = "btn btn-info" })
+                    <a class="btn btn-info" asp-controller="Hospitales" asp-action="Details" asp-route-id="@hospital.IdHospital">Detalles</a>
+                    <a class="btn btn-warning" asp-controller="Hospitales" asp-action="Update" asp-route-id="@hospital.IdHospital">Update</a>
+                    <a class="btn btn-danger" asp-controller="Hospitales" asp-action="Delete" asp-route-id="@hospital.IdHospital">Eliminar</a>
                 </td>
             </tr>
         }
-        </tbody>
+    </tbody>
     </table>
+@Html.ActionLink("Crear hospital", "Create", "Hospitales")
